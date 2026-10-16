@@ -1,0 +1,307 @@
+/* * {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+
+input,
+select {
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 50px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-left: 350px;
+
+}
+
+textarea {
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 50px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    margin-left: 350px;
+
+}
+
+
+div > p{
+    background-color: burlywood;
+}
+
+button{
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    
+} */
+
+
+
+
+/* ===== Reset & Base ===== */
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    background-size: 300% 300%;
+    animation: gradientMove 15s ease infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    color: #fff;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ستاره‌های پس‌زمینه */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+}
+body::before {
+    background: #ff00cc;
+    top: -150px;
+    left: -150px;
+    animation: float 8s ease-in-out infinite;
+}
+body::after {
+    background: #00d4ff;
+    bottom: -150px;
+    right: -150px;
+    animation: float 10s ease-in-out infinite reverse;
+}
+
+@keyframes gradientMove {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(40px, 40px) scale(1.15); }
+}
+
+/* ===== Form ===== */
+form {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Inputs ===== */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 14px 18px;
+    margin: 0;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.06);
+    font-size: 16px;
+    color: #fff;
+    outline: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #00d4ff;
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.15),
+                0 0 20px rgba(0, 212, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 20px;
+    padding-right: 45px;
+}
+
+select option {
+    background: #24243e;
+    color: #fff;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+/* ===== Buttons ===== */
+button {
+    width: 100%;
+    max-width: 200px;
+    height: 52px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btnSub {
+    background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+    color: #fff;
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+}
+
+.btnSub:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(123, 47, 247, 0.6);
+}
+
+.btnSub:active {
+    transform: translateY(-1px);
+}
+
+.btnReset {
+    background: transparent;
+    color: #ff4d6d;
+    border: 2px solid #ff4d6d;
+}
+
+.btnReset:hover {
+    background: #ff4d6d;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(255, 77, 109, 0.5);
+}
+
+/* چیدمان دکمه‌ها */
+form {
+    display: flex;
+    flex-direction: column;
+}
+form .btnSub,
+form .btnReset {
+    align-self: center;
+}
+
+/* ===== Output ===== */
+div:last-of-type {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 30px;
+}
+
+div:last-of-type > p {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+div:last-of-type > p > div {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 20px;
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    animation: slideIn 0.5s ease;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+div:last-of-type > p > div:hover {
+    transform: translateX(6px);
+    border-color: rgba(0, 212, 255, 0.5);
+}
+
+div:last-of-type > p > div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, #00d4ff, #7b2ff7);
+}
+
+div:last-of-type > p > div > p {
+    font-size: 18px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00d4ff, #7b2ff7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+div:last-of-type > p > div > span {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    form { padding: 25px; border-radius: 18px; }
+    button { max-width: 100%; }
+}
